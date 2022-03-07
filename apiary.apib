@@ -1,0 +1,413 @@
+stringFORMAT: 1A
+
+# Batter Day
+
+Batter Day is an api for viewing and ordering products.
+
+## Data Structures
+### Users (Base Model)
++ Include Id 
++ first_name: John (string, required)
++ last_name: Smith (string, required)
++ email: example@gmail.com (string, required)
++ address: 1234 N Example ST (string, required)
++ city: Norfolk (string, required)
++ state: VA (string, required)
++ zip: 10203 (number, required)
++ phone: 402-555-5555 (string, required)
++ password: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required) - hashed password
++ orders: [2202001034] (array) - Orders id
++ Reviews: [1234, 7851, 6344] (array)
++ Favorites: [80900100011, 80019982743] (array) - Products id
+
+### Categories (Base Model)
++ Include Id
++ name: Cookies (string, required)
++ img: 'https://picsum.photos/200/300?random=1' (string, required)
++ products_id: [80900100011, 80019982743] (array) - Products id
+
+### Products (Base Model)
++ Include Id
++ name: Brown Butter Cookies (string, required)
++ image: https://bit.ly/3sr9EjH (string, required)
++ price: 5.95 (number, required)
++ category: Cookies (string, required) - Categories id
++ description: Delicious chocolate cookies mixed with the nuttyness of brown butter (string, required)
++ bakeTime: Bake for 10 minutes at 350º F (string, required)
++ reviews: [1234, 7851, 6344] (array) - Reviews id
++ bestSeller: false (boolean)
+
+### Orders (Base Model)
++ Include Id
++ user: '78cc315e-6f57-43da-a414-5970a306a7cf' (string, required) - Users id
++ subtotal: 70.34 (number, required)
++ created: '2022-02-03T07:40:31.075Z' (date, required)
++ dueDate: '03-01-2022' (string, required)
++ deliveryTime: 9:40 AM (string, required)
++ products: [80900100011, 80019982743] (array,required) - products id
+
+### Reviews (Base Model)
++ Include Id
++ product: 80900100011 (number, required) - Products id
++ user: '78cc315e-6f57-43da-a414-5970a306a7cf' (string, required) - Users id
++ rating: 4 (number, required)
++ date: '2022-02-13T17:33:21.076Z' (date, required)
++ content: These were delicious cookies (string, required)
+
+### Favorites (Base Model)
++ Include Id
++ user: '78cc315e-6f57-43da-a414-5970a306a7cf' (string, required) - Users id
++ products: 80900100011 (number, required) - Products id
+
+### Base Model (object)
++ createdAt: `2019-08-05T08:40:51.620Z` (string, required) - Date resource was create
++ updatedAt: `2019-08-05T08:40:51.620Z` (string, required) - Date resource was last updated
+
+### Id
++ id: `3e836f45-5f86-4a9a-a27b-17e71b60317d` (string, required) - Unique Identifier (uuid)
+
+
+
+# Group Users Collection
+
+
+## /users
+### GET
+Get all the users
+
++ Response 200 (application/json)
+    + Attributes (array[Users])
+    
+### POST
+Create a new user
++ Request (application/json)
+    + Attributes (object)
+        + first_name: John (string, required)
+        + last_name: Smith (string, required)
+        + email: example@gmail.com (string, required)
+        + address: 1234 N Example ST (string, required)
+        + city: Norfolk (string, required)
+        + state: VA (string, required)
+        + zip: 10203 (number, required)
+        + phone: 402-555-5555 (string, required)
+        + password: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required)
++ Response 201 (application/json)
+    + Attributes (Users)
+    
+
+## /users/{id}
+
++ Parameters
+    + id: 'f8b97084-7569-4705-b134-158d547fc3f2' (string, required) - Users id
+    
+### GET
+Get one user by id
+
++ Response 200
+    + Attributes (Users)
+
+### PUT
+Update a user by id
+
++ Response 202
+    + Attributes (Users)
+
+### DELETE
+Delete a user
+
++ Response 202
+
+
+
+# Group Categories Collection
+
+
+## /categories
+### GET
+Get all the categories
+
++ Response 200 (application/json)
+    + Attributes (array[Categories])
+
+### POST
+Create a new category
++ Request (application/json)
+    + Attributes (object)
+        + name: Cookies (string, required)
+        + img: 'https://picsum.photos/200/300?random=1' (string, required)
++ Response 201 (application/json)
+    + Attributes (Categories)
+    
+
+## /categories/{id}
+
++ Parameters
+    + id: 7001 (int, required) - Categories id
+    
+### GET
+Get one category by id
+
++ Response 200
+    + Attributes (Categories)
+
+        
+### PUT
+Update a category by id
+
++ Response 202
+    + Attributes (Categories)
+        
+        
+### DELETE
+Delete a category
+
++ Response 202
+
+
+
+        
+# Group Products Collection
+
+
+## /products
+### GET
+Get all the products
+
++ Response 200 (application/json)
+    + Attributes (array[Products])
+
+### POST
+Create a new product
++ Request (application/json)
+    + Attributes (object)
+        + name: Brown Butter Chocolate Chip Cookies (string, required)
+        + img: 'https://picsum.photos/300/300?random=2' (string, required)
+        + price: 5.95 (number, required)
+        + category: 7001 (number, required)
+        + description: Delicious chocolate cookies mixed with the nuttyness of brown butter (string, required)
+        + bakeTime: Bake for 10 minutes at 350º F (string, required)
+        + featured: true (boolean, required)
+        + bestSeller: false (boolean, required)
++ Response 201 (application/json)
+    + Attributes (Products)
+    
+
+## /products/{id}
+
++ Parameters
+    + id: 80900100011 (number) - Products id
+    
+### GET
+Get one product by id
+
++ Response 200
+    + Attributes (Products)
+
+        
+### PUT
+Update a product by id
+
++ Response 202
+    + Attributes (Products)
+        
+        
+### DELETE
+Delete a product
+
++ Response 202
+
+
+        
+# Group Orders Collection
+
+
+## /orders
+### GET
+Get all the orders
+
++ Response 200 (application/json)
+    + Attributes (array[Orders])
+
+### POST
+Create a new order
++ Request (application/json)
+    + Attributes (object)
+        + subtotal: 70.34 (number, required)
+        + created: '2022-02-03T07:40:31.075Z' (date, required)
+        + dueDate: '03-01-2022' (string, required)
+        + deliveryTime: 9:40 AM (string, required)
+        + products: [80900100011, 80019982743] (array,required)
++ Response 201 (application/json)
+    + Attributes (Orders)
+    
+
+## /orders/{id}
+
++ Parameters
+    + id: 2202001034 (number, required) - Orders id
+    
+### GET
+Get one order by id
+
++ Response 200
+    + Attributes (Orders)
+
+        
+### PUT
+Update an order by id
+
++ Response 202
+    + Attributes (Orders)
+        
+        
+### DELETE
+Delete an order
+
++ Response 202
+
+
+# Group Reviews Collection
+
+
+## /reviews
+### GET
+Get all the reviews
+
++ Response 200 (application/json)
+    + Attributes (array[Reviews])
+
+### POST
+Create a new review
++ Request (application/json)
+    + Attributes (object)
+        + product: 80900100011 (number, required) - Products id
+        + user: '78cc315e-6f57-43da-a414-5970a306a7cf' (string, required) - Users id
+        + rating: 4 (number, required)
+        + date: '2022-02-13T17:33:21.076Z' (date, required)
+        + content: These were delicious cookies (string, required)
++ Response 201 (application/json)
+    + Attributes (Reviews)
+    
+
+## /reviews/{id}
+
++ Parameters
+    + id: 7851 (number, required) - Reviews id
+    
+### GET
+Get one review by id
+
++ Response 200
+    + Attributes (Reviews)
+
+        
+### PUT
+Update a review by id
+
++ Response 202
+    + Attributes (Reviews)
+        
+        
+### DELETE
+Delete a review
+
++ Response 202
+
+
+# Group Favorites Collection
+
+
+## /favorites
+### GET
+Get all the favorites
+
++ Response 200 (application/json)
+    + Attributes (array[Favorites])
+
+### POST
+Create a new favorite
++ Request (application/json)
+    + Attributes (object)
+        + user: '78cc315e-6f57-43da-a414-5970a306a7cf' (string, required) - Users id
+        + product: 80900100011 (number, required) - Products id
++ Response 201 (application/json)
+    + Attributes (Favorites)
+    
+
+## /favorites/{id}
+
++ Parameters
+    + id: 80019982743 (number, required) - Products id
+    
+### GET
+Get one favorite by id
+
++ Response 200
+    + Attributes (Favorites)
+
+        
+
+### DELETE
+Delete a favorite
+
++ Response 202
+
+
+# Group Authentication
+
+## /auth/register
+
+### POST 
+Sign a user up
++ Request (application/json)
+    + Attributes (object)
+        + first_name: John (string, required)
+        + last_name: Smith (string, required)
+        + email: example@gmail.com (string, required)
+        + address: 1234 N Example ST (string, required)
+        + city: Norfolk (string, required)
+        + state: VA (string, required)
+        + zip: 10203 (number, required)
+        + phone: 402-555-5555 (string, required)
+        + password: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required)
++ Response 200 (application/json)
+    + Attributes (object)
+      + loggedIn: true (boolean, required)
+      + token: JSONWEBTOKEN (string, required)
+
+## /auth/login
+### POST
+Log a user in
++ Request (application/json)
+    + Attributes (object)
+        + email: example@gmail.com (string, required)
+        + password: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required)
++ Response 200 (application/json)
+    + Attributes (object)
+      + loggedIn: true (boolean, required)
+      + token: JSONWEBTOKEN (string, required)
+    
+## /auth/forgot
+
+### POST
+Send a reset password email when a user forgets their password
++ Request (application/json)
+    + Attributes (object)
+        + email: example@gmail.com (string, required)
++ Response 200 (application/json)
+    + Attributes (object)
+      + message: 'Check your email for further instructions'
+      
+## /auth/reset
+
+### POST 
+Update the user's password with a new one and log them in
++ Request (application/json)
+    + Attributes (object)
+        + token: RESETTOKEN (string, required)
+        + password: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required)
+        + rePassword: 'A2BB0A7C7BB409B09EB6E0284F622E94' (string, required)
++ Response 200 (application/json)
+    + Attributes (object)
+      + loggedIn: true (boolean, required)
+      + token: JSONWEBTOKEN (string, required)

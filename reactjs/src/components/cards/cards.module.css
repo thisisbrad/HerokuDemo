@@ -1,0 +1,183 @@
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+.ctgContainer {
+  composes: flex;  
+  max-width: 11rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.ppContainer {
+  width: 16rem;
+  height: 30rem;
+  object-fit: cover;
+  object-position: 50% 50%;
+  margin: 0 .7rem;
+}
+.heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+.text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+  margin-top: .5rem;
+}
+.container {
+  composes: flex;
+  width: 32rem;
+  height: 10rem;
+  margin: 2rem auto;
+}
+.rating {
+  composes: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+.textDecor {
+  text-decoration: none;
+  color: #523F38;
+}
+.ctgText {
+  composes: textDecor;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.textCont {
+  composes: flex;
+  margin-bottom: 1rem;
+}
+.ctgProdCard {
+  composes: container;
+  height: 15rem;
+  display: block;
+}
+.prodCard {
+  composes: rating;
+  height: 8rem;
+  margin: 1rem 1rem 2rem 0;
+
+}
+.basicInfo {
+  max-width: 100%;
+  margin-bottom: 2rem;
+}
+.block {
+  width: 35rem;
+  margin: 0 auto;
+}
+.textInfo {
+  composes: flex;
+  width: 35rem;
+  margin: 0 auto;
+}
+.innerContainer {
+  composes: flex;
+  flex-direction: column;
+  width: 18rem;
+}
+.heading {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #523F38;
+  text-align: left;
+}
+.purchaseC {
+  width: 32rem;
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.purchaseText {
+  width: 22rem;
+  height: 6rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Media Queries */
+@media(min-width: 600px){
+  .ctgText {
+    font-size: 1.8rem;
+  }
+  .container {
+    width: 36rem;
+  }
+  .rating {
+    width: 24rem;
+  }
+  .purchaseC {
+    height: 9rem;
+  }
+}
+@media(min-width: 800px){
+  .ctgText {
+    font-size: 2rem;
+  }
+  .container {
+    width: 40rem;
+  }
+  .rating {
+    width: 26rem;
+  }
+  .block {
+    width: 45rem;
+  }
+  .textInfo {
+    width: 45rem;
+  }
+  .innerContainer {
+    width: 22rem;
+  }
+}
+@media(min-width: 1100px) {
+  .container {
+    width: 44rem;
+    height: 12rem;
+  }
+  .rating {
+    width: 30rem;
+  }
+  .heading {
+    font-size: 2.2rem;
+  }
+  .text {
+    font-size: 2rem;
+  }
+  .ctgProdCard {
+    height: 18rem;
+  }
+  .heading {
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+  .innerContainer {
+    width: 24rem;
+  }
+  .purchaseC {
+    height: 11rem;
+  }
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  color: #523F38;
+}
+.counterBtn {
+  composes: flex;
+  align-items: center;
+}
+.text2 {
+  font-size: 1.6rem;
+}
+.purchaseH {
+  font-size: 1.8rem;
+  font-weight: 500;
+}

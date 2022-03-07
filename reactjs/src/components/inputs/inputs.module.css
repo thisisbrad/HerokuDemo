@@ -1,0 +1,77 @@
+.icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 .5rem 0 0;
+}
+.container {
+  width: 10rem;
+  margin: .5rem;
+}
+.basicLrg {
+  width: 34.5rem;
+  height: 4rem;
+  border-radius: 1rem;
+  margin: 1rem;
+}
+.basicMd {
+  composes: basicLrg;
+  width: 17.5rem;
+}
+.basicSm {
+  composes: basicLrg;
+  width: 13rem;
+}
+.inputContainer {
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.subtotal {
+  composes: flex;
+  border: .1rem solid #523F38;
+}
+.subtotalC {
+  width: 50rem;
+  margin: 0 auto;
+  composes: flex;
+}
+.selectC {
+  width: 12rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+  font-size: 1.4rem;
+}
+.select {
+  width: 8rem;
+  height: 5rem;
+  border-radius: 1rem;
+  background-color: #fff;
+}
+@media(min-width: 800px){
+  .select {
+    width: 9rem;
+  }
+  .selectC {
+    width: 14rem;
+  }
+  .basicLrg {
+    width: 38rem;
+  }
+  .basicMd {
+    width: 20rem
+  }
+  .basicSm {
+    width: 15rem
+  }
+}
+
+.text {
+  font-size: 1.2rem;
+}

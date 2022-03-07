@@ -1,0 +1,14 @@
+.dropDown {
+  width: 15rem;
+}
+.textContainer {
+  background: #E7EFC5;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 15rem;
+  height: 20rem;
+  position: absolute;
+  top: 6rem;
+}
