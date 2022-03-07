@@ -9,7 +9,7 @@
   },
   "scripts": {
     "heroku-postbuild": "npm install --prefix api && npm install --only=dev --prefix reactjs && npm install --prefix reactjs",
-    "dev": "concurrently --raw \"npm run reactjs\"",
+    "dev": "concurrently --raw \"npm run reactjs\" \" npm run api\"",
     "reactjs": "cd reactjs; npm start",
     "api": "cd api; node server.js"
   },
