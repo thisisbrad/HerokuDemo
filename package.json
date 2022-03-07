@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "npm install --prefix api && npm install --prefix reactjs && npm run build --prefix reactjs",
     "dev": "concurrently --raw \"npm run reactjs\" \" npm run api\"",
     "reactjs": "cd reactjs; npm start",
     "api": "cd api; node server.js"
